@@ -1,9 +1,17 @@
 head
 {
-    
 }
 
 body
+{  
+}
+
+#header
 {
-    
+ text-align:center;   
+}
+
+input
+{
+ align-content: center;   
 }
