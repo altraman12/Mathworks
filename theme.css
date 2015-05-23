@@ -1,5 +1,6 @@
 head
 {
+    font-size:0;
 }
 
 body
@@ -14,4 +15,10 @@ body
 input
 {
  align-content: center;   
+}
+
+#submit
+{
+    background-color: #0000FF;
+    border:none;
 }

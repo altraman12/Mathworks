@@ -4,13 +4,18 @@
         <title>Mathworks</title>
         <link rel=stylesheet href="theme.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="loginPage.js"></script>
+        <script>
+            var login=new Login();
+        </script>
     </head>
     <body>
         <div id="header">
             <h1>Mathworks</h1>
         </div>
-        <form action="storUser.php">
+        <form action="storeUser.php">
             <input type="text" value="Enter Your Nickname">
+            <input type="submit" value="Go!" id="submit">
         <form>
     </body>
 </html>
