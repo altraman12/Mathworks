@@ -11,8 +11,8 @@
      
             <script>
 			
-			
-var today = new Date();
+
+    var today = new Date();
     var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
 	console.log("three");
     function setCookie(name, value){
@@ -22,51 +22,20 @@ var today = new Date();
 	console.log(document.cookie);
     //this should set the UserName cookie to the proper value;
     function storeValues(form)
-       {
-   setCookie("userName", document.getElementById("nameBox").elements[0].value);
-   console.log(document.cookie+"word");
-   return true;
-}
-    
-
-
-            </script>   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    {
+        setCookie("userName", document.getElementById("nameBox").value);
+        console.log(document.cookie+"word");
+        return true;
+    }
+            </script>               
     </head>
     <body>
         <div id="header">
             <h1>Mathworks</h1>
         </div>
 		<form onsubmit="storeValues(this)">
-<input type="text" value="" id="nameBox">
-<input type="submit" value="Go!" id="submit">
-<form>
-
-    
-
-           
-
+            <input type="text" value="" id="nameBox">
+            <input type="submit" value="Go!" id="submit">
+        </form>
 	</body>	
-		
-		
-		
-		
-		
-		
-		
-		
-  
-            
-           
 </html>
