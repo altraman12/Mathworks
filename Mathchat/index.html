@@ -16,9 +16,9 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script>  var inviteBaseLobby  = new Firebase('https://mathsages.firebaseio.com/'); 
     
-var text1 = "`x = (-b +- sqrt(b^2-4ac))/(2a) .`";
-var text2 = "`x = (-b +- sqrt(b^2-4ac))/(2a) .`";
-var text3 = "`x = (-b +- sqrt(b^2-4ac))/(2a) .`";
+var text1 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+var text2 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+var text3 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
 
 function clearTextbox() {
     "use strict";
@@ -45,18 +45,16 @@ function send() {
     MathJax.Hub.Queue(["Text", math2, text2]);
     MathJax.Hub.Queue(["Text", math3, text3]);
     //MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    clearTextbox();
     fireBaseInt();
+    clearTextbox();    
 }
 
 
 
 
 function fireBaseInt(){
-    
-     
-    var text = document.getElementById('inputBox');
-    var name = getCookie("chatroomName");
+    var text = document.getElementById('inputBox').value;
+    var name = getCookie("chatroomName").value;
    inviteBaseLobby.push({name: name, text: text}); 
     
 }
