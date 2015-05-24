@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,200,300,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=greek-ext,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="Chat%20UI.css">
+
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <title>
+        Mathworks - Chatroom
+    </title>
+
+    <script>
+        var inviteBaseLobby = new Firebase('https://mathsages.firebaseio.com/');
+
+        var text1 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text2 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text3 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text4 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text5 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text6 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text7 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text8 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+
+
+        function clearTextbox() {
+            "use strict";
+            document.getElementById("inputBox").value = "";
+        }
+
+        function send() {
+            "use strict";
+            //document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
+            var space1 = document.getElementById("1");
+            var space2 = document.getElementById("2");
+            var space3 = document.getElementById("3");
+            var space4 = document.getElementById("4");
+            var space5 = document.getElementById("5");
+            var space6 = document.getElementById("6");
+            var space7 = document.getElementById("7");
+            var space8 = document.getElementById("8");
+
+            var math1 = MathJax.Hub.getAllJax("messages")[0];
+            var math2 = MathJax.Hub.getAllJax("messages")[1];
+            var math3 = MathJax.Hub.getAllJax("messages")[2];
+            var math4 = MathJax.Hub.getAllJax("messages")[3];
+            var math5 = MathJax.Hub.getAllJax("messages")[4];
+            var math6 = MathJax.Hub.getAllJax("messages")[5];
+            var math7 = MathJax.Hub.getAllJax("messages")[6];
+            var math8 = MathJax.Hub.getAllJax("messages")[7];
+
+            text1 = text2;
+            text2 = text3;
+            text3 = text4;
+            text4 = text5;
+            text5 = text6;
+            text6 = text7;
+            text7 = text8;
+            text8 = document.getElementById("inputBox").value;
+            console.log(text8);
+
+            MathJax.Hub.Queue(["Text", math1, text1]);
+            MathJax.Hub.Queue(["Text", math2, text2]);
+            MathJax.Hub.Queue(["Text", math3, text3]);
+            MathJax.Hub.Queue(["Text", math4, text4]);
+            MathJax.Hub.Queue(["Text", math5, text5]);
+            MathJax.Hub.Queue(["Text", math6, text6]);
+            MathJax.Hub.Queue(["Text", math7, text7]);
+            MathJax.Hub.Queue(["Text", math8, text8]);
+            //MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            fireBaseInt();
+            clearTextbox();
+        }
+
+
+
+
+        function fireBaseInt() {
+            var text = document.getElementById('inputBox').value;
+            var name = getCookie("chatroomName").value;
+            inviteBaseLobby.push({
+                name: name,
+                text: text
+            });
+
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+        var menuOpen = false;
+
+        var main = function () {
+            "use strict";
+            $('.open').click(function () {
+                if (!menuOpen) {
+                    $('.menu').animate({
+                        left: '0px'
+                    }, 200);
+
+                    $('body').animate({
+                        left: '200px'
+                    }, 200);
+                    menuOpen = true;
+                } else {
+                    $('.menu').animate({
+                        left: '-200px'
+                    }, 200);
+
+                    $('body').animate({
+                        left: '0px'
+                    }, 200);
+                    menuOpen = false;
+                }
+            });
+        };
+
+        $(document).ready(main);
+    </script>
+
+
+
+
+
+    <div id="title">
+        <ul>
+            <li>Mathworks</li>
+        </ul>
+    </div>
+</head>
+
+<body>
+    <div id="messages">
+        <p id="1">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="2">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="3">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="4">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="5">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="6">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="7">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="8">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+    </div>
+    <div id="textbox">
+        <div id="inputArea">
+            <input type="text" id="inputBox" value="Enter Message Here" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
+            <input type="button" id="inputButton" value="Send" onclick="send()" />
+        </div>
+    </div>
+</body>
+
+</html>
