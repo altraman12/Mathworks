@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Mathworks</title>
+        <link rel=stylesheet href="theme.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="lobby.js"></script>
+        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+        <script>
+            var inviteBase = new Firebase('https://mathvites.firebaseio-demo.com');
+
+document.write("hello");
+
+inviteBase.on('child_added', function(snapshot) {
+        var invite = snapshot.val();
+        if(invite.name==getCookie(userName)|invite.name==="open")
+        {
+            document.getElementById("invites") += "<div>You have been invited to" + invite.value + "</div>";   
+        }
+});
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Mathworks</h1>
+        </div>
+        <div id="invites">
+            hi
+        </div>
+    </body>
+</html>
