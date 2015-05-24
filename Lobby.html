@@ -4,7 +4,6 @@
         <title>Mathworks</title>
         <link rel=stylesheet href="theme.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="lobby.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
         <script>    
             var inviteBase = new Firebase('https://mathvites.firebaseio.com/');
@@ -17,10 +16,6 @@
                     }
             });
             
-            var name = "open";
-            var text = "pleaseWork";
-            myDataRef.push({name: name, text: text});
-            
             function getCookie(cname) {
                 var name = cname + "=";
                 var ca = document.cookie.split(';');
@@ -31,6 +26,28 @@
                 }
                 return "";
             }
+            
+            $(document).ready(function(){
+                var priv =true;
+                document.getElementById('private').checked=true;
+                
+                $("#private").click(function(){
+                    if(!document.getElementById('private').checked){
+                        $("#tutorName").slideUp();
+                    }else{
+                        $("#tutorName").slideDown();
+                    }
+                });
+                
+                $("#createRoom").click(function(){
+                    var name = "open";
+                    if(document.getElementById('private').checked){
+                        name=document.getElementById("tutorName").value;      
+                    }
+                    var text = document.getElementById("roomName").value; 
+                    .push({name: name, text: text}); 
+                });
+            });
         </script>
     </head>
     <body>
@@ -38,6 +55,16 @@
             <h1>Mathworks</h1>
         </div>
         <div id="invites">
+        </div>
+        <div id="makeRoom">
+            <h2>Create A Room</h2>
+            Private:<input type="checkbox" id="private"></input>
+            <br>
+            <input type="text" id="roomName" value="Enter Your Room Name"></input>
+            <br>
+            <input type="text" id="tutorName" value="Invite a Tutor"></input>
+            <br>
+            <button id="createRoom">Go!</button>
         </div>
     </body>
 </html>
