@@ -23,13 +23,13 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
+    var userName =geNametCookie("username");
+    if (userName != "") {
+        alert("Welcome again " + userName);
     } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 30);
+       userName = prompt("Please enter your name:","");
+       if (userName != "" && userName != null) {
+           setCookie("username", userName, 30);
        }
     }
 }  
