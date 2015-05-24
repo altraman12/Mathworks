@@ -2,41 +2,79 @@
 <html>
     <head>
         <title>Mathworks</title>
-        <link rel=stylesheet href="theme.css">
+       
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="loginPage.js"></script>
+       
+        
+     
+            <script>
+			
+var today = new Date();
+    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+	console.log("three");
+    function setCookie(name, value){
+        document.cookie=name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
+		console.log(document.cookie+"hello");
+    }
+	console.log(document.cookie);
+    //this should set the UserName cookie to the proper value;
+    function storeValues(form)
+       {
+   setCookie("userName", document.getElementById("nameBox").elements[0].value);
+   console.log(document.cookie+"word");
+   return true;
+}
+    
+
+
+            </script>   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </head>
     <body>
         <div id="header">
             <h1>Mathworks</h1>
         </div>
 		<form onsubmit="storeValues(this)">
-<input type="text" value="Enter Your Nickname" id="nameBox">
+<input type="text" value="" id="nameBox">
 <input type="submit" value="Go!" id="submit">
 <form>
 
-    </body>
+    
 
             <script>
 			
 var today = new Date();
     var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-
+	console.log("three");
     function setCookie(name, value){
-        document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+        document.cookie=name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
+		console.log(document.cookie+"hello");
     }
+	console.log(document.cookie);
     //this should set the UserName cookie to the proper value;
     function storeValues(form)
        {
-   setCookie("userName", form.nameBox.value);
+   setCookie("userName", document.getElementById("nameBox").elements[0].value);
+   console.log(document.cookie+"word");
    return true;
-}*/
+}
     
 
 
-            </script>
+    </script>
 
-		
+	</body>	
 		
 		
 		
