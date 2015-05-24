@@ -1,43 +1,90 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Mathworks</title>
-        <link rel=stylesheet href="theme.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="lobby.js"></script>
-        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
-        <script>    
-            var inviteBase = new Firebase('https://mathvites.firebaseio.com/');
-            
-            inviteBase.on('child_added', function(snapshot) {
-                    var invite = snapshot.val();
-                    if(invite.name==="open"|invite.name===getCookie("userName"))
-                    {
-                        document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text +"</p><br>";            
-                    }
-            });
-            
-            var name = "open";
-            var text = "pleaseWork";
-            myDataRef.push({name: name, text: text});
-            
-            function getCookie(cname) {
-                var name = cname + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0; i<ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1);
-                    if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-                }
-                return "";
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,200,300,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel=stylesheet href="Lobby.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+
+    <div id="title">
+        <ul>
+            <li>Mathworks</li>
+        </ul>
+    </div>
+    <title>
+        Mathworks - Lobby
+    </title>
+
+    <script>
+        var inviteBase = new Firebase('https://mathvites.firebaseio.com/');
+
+        inviteBase.on('child_added', function (snapshot) {
+            var invite = snapshot.val();
+            if (invite.name === "open" | invite.name === getCookie("userName")) {
+                document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text + "</p><br>";
             }
-        </script>
-    </head>
-    <body>
-        <div id="header">
-            <h1>Mathworks</h1>
-        </div>
-        <div id="invites">
-        </div>
-    </body>
+        });
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        $(document).ready(function () {
+            var priv = true;
+            document.getElementById('private').checked = true;
+
+            $("#private").click(function () {
+                if (!document.getElementById('private').checked) {
+                    $("#tutorName").slideUp();
+                } else {
+                    $("#tutorName").slideDown();
+                }
+            });
+
+            $("#createRoom").click(function () {
+                var name = "open";
+                if (document.getElementById('private').checked) {
+                    name = document.getElementById("tutorName").value;
+                }
+                var text = document.getElementById("roomName").value;
+                inviteBase.push({
+                    name: name,
+                    text: text
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="invites">
+    </div>
+
+    <div id="createRoomTitle">
+        <p>Create A Room:</p>
+    </div>
+
+    <div id="makeRoom">
+        Private:
+        <input type="checkbox" id="private"></input>
+        <br>
+        <input type="text" id="roomName" value="Enter Your Room Name"></input>
+        <br>
+        <input type="text" id="tutorName" value="Invite a Tutor"></input>
+        <br>
+        <br>
+        <button id="createRoomButton">Go!</button>
+    </div>
+</body>
+
 </html>
