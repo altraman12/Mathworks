@@ -20,11 +20,13 @@
 
     <script>
         var inviteBase = new Firebase('https://mathvites.firebaseio.com/');
-
+        var pubVite = null;
+        
         inviteBase.on('child_added', function (snapshot) {
             var invite = snapshot.val();
+            pubVite=invite;
             if (invite.name === "open" | invite.name === getCookie("userName")) {
-                document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text + "</p><br>";
+                document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text + "<input type='button' value='join' onClick='storeJoinedRoom(pubVite.text)'></p></input><br>";
             }
         });
 
@@ -51,7 +53,9 @@
                 }
             });
 
-            $("#createRoom").click(function () {
+            $("#createRoomButton").click(function () {
+                alert("hi");
+                storeCreatedRoom();
                 var name = "open";
                 if (document.getElementById('private').checked) {
                     name = document.getElementById("tutorName").value;
@@ -63,6 +67,29 @@
                 });
             });
         });
+        
+        var today = new Date();
+        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+        console.log("three");
+        function setCookie(name, value){
+            document.cookie=name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
+            console.log(document.cookie+"hello");
+        }
+        console.log(document.cookie);
+        //this should set the UserName cookie to the proper value;
+        function storeCreatedRoom()
+        {
+            setCookie("chatroomName", document.getElementById("roomName").value);
+            console.log(document.cookie+"word");
+            return true;
+        }
+        
+        function storeJoinedRoom(name)
+        {
+            setCookie("chatroomName",name);
+            console.log(document.cookie+"word");
+            return true;  
+        }
     </script>
 </head>
 
