@@ -2,14 +2,19 @@
 <html>
     <head>
         <title>Mathworks</title>
-       
+       <script src="path/to/jquery.js"></script>
+  <script src="path/to/jquery.cookie.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<!--This used to be https-->
        
         
      
             <script>
+			$.cookie("visits", 10);
+			alert( $.cookie("visits") );
+			console.debug($.cookie("visits"));
 			
-var today = new Date();
+/*var today = new Date();
     var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
 	console.log("three");
     function setCookie(name, value){
@@ -24,7 +29,7 @@ var today = new Date();
    console.log(document.cookie+"word");
    return true;
 }
-    
+    */
 
 
             </script>   
@@ -52,27 +57,7 @@ var today = new Date();
 
     
 
-            <script>
-			
-var today = new Date();
-    var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-	console.log("three");
-    function setCookie(name, value){
-        document.cookie=name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
-		console.log(document.cookie+"hello");
-    }
-	console.log(document.cookie);
-    //this should set the UserName cookie to the proper value;
-    function storeValues(form)
-       {
-   setCookie("userName", document.getElementById("nameBox").elements[0].value);
-   console.log(document.cookie+"word");
-   return true;
-}
-    
-
-
-    </script>
+           
 
 	</body>	
 		
