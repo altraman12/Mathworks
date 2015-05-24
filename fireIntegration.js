@@ -18,8 +18,7 @@ messageBase.on('child_added', function(snapshot) {
 });
 
 function sendMessage(words){
-    messageBase.push({name: getCookie(chatroomName), text: '{"user":getCookie(userName) , "message":' + words '}' });
-}
+    messageBase.push({name: getCookie(chatroomName), text: '{"user":getCookie(userName) , "message":' + words '}' });  
 
 function getCookie(cname) {
     var name = cname + "=";
