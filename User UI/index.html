@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,200,300,500,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'],['\\(', '\\)']] } });
+    </script>-->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=greek-ext,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="chatPage.js"></script>
+
+    <div id="title">
+        <ul>
+           <li>Mathworks</li>
+        </ul>
+    </div>
+    <title>
+        Mathworks
+    </title>
+</head>
+
+<body>
+    <br><br><br><br><br><br><br>
+    <div id="textbox">
+        <div id="inputArea">
+            <input type="text" id="inputBox" value="Enter Webname" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
+            <br><br><br><br>
+            <input type="button" id="inputButton" value="Go!" onclick="send()" />
+        </div>
+    </div>
+</body>
+
+</html>
