@@ -6,18 +6,31 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="lobby.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
-        <script>
-            var inviteBase = new Firebase('https://mathvites.firebaseio-demo.com');
-
-document.write("hello");
-
-inviteBase.on('child_added', function(snapshot) {
-        var invite = snapshot.val();
-        if(invite.name==getCookie(userName)|invite.name==="open")
-        {
-            document.getElementById("invites") += "<div>You have been invited to" + invite.value + "</div>";   
-        }
-});
+        <script>    
+            var inviteBase = new Firebase('https://mathvites.firebaseio.com/');
+            
+            inviteBase.on('child_added', function(snapshot) {
+                    var invite = snapshot.val();
+                    if(invite.name==="open"|invite.name===getCookie("userName"))
+                    {
+                        document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text + "<br> </p>";            
+                    }
+            });
+            
+            var name = "open";
+            var text = "pleaseWork";
+            myDataRef.push({name: name, text: text});
+            
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+                }
+                return "";
+            }
         </script>
     </head>
     <body>
@@ -25,7 +38,6 @@ inviteBase.on('child_added', function(snapshot) {
             <h1>Mathworks</h1>
         </div>
         <div id="invites">
-            hi
         </div>
     </body>
 </html>
