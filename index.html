@@ -1,41 +1,79 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Mathworks</title>
-      
-       
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,200,300,500,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.5/jquery.min.js"></script
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto&subset=greek-ext,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>-->
+
+    <link rel="stylesheet" href="WebNameUI.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<!--This used to be https-->
        
         
      
-            <script>
+    <script>
 			
 
     var today = new Date();
     var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-	console.log("three");
     function setCookie(name, value){
         document.cookie=name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
-		console.log(document.cookie+"hello");
     }
-	console.log(document.cookie);
     //this should set the UserName cookie to the proper value;
     function storeValues(form)
     {
-        setCookie("userName", document.getElementById("nameBox").value);
-        console.log(document.cookie+"word");
+        setCookie("userName", document.getElementById("inputBox").value);
+        var url = "file:///C:/Users/Admin/Documents/Mathworks/Lobby.html";
+        document.location.replace("file:///C:/Users/Admin/Documents/Mathworks/Lobby.html");
+        window.open("Lobby.html");
+        self.close();
         return true;
     }
-            </script>               
-    </head>
-    <body>
-        <div id="header">
-            <h1>Mathworks</h1>
+            </script>    
+    
+    
+    
+
+    <div id="title">
+        <ul>
+            <li>CollabMath</li>
+        </ul>
+    </div>
+    <title>
+        CollabMath - WebName
+    </title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="textbox">
+        <div id="inputArea">
+            
+            <form onsubmit="storeValues(this)">
+            <!--<input type="text" value="" id="nameBox">-->
+            <!--<input type="submit" value="Go!" id="submit">-->
+        
+            
+            <input type="text" id="inputBox" value="Enter Username" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type="submit" id="sumit" value="Go!" onClick="send()" />
+            </form>
         </div>
-		<form onsubmit="storeValues(this)">
-            <input type="text" value="" id="nameBox">
-            <input type="submit" value="Go!" id="submit">
-        </form>
-	</body>	
+    </div>
+</body>
+
 </html>

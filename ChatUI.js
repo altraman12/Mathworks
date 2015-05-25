@@ -40,7 +40,7 @@ function fireBaseInt(){
      
     var text = document.getElementById('inputBox');
     var name = getCookie("chatroomName");
-   inviteBaseLobby.push({name: name, text: text}); 
+    inviteBaseLobby.push({name: name, text: text}); 
     
 }
 

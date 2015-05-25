@@ -11,11 +11,11 @@
 
     <div id="title">
         <ul>
-            <li>Mathworks</li>
+            <li>CollabMath</li>
         </ul>
     </div>
     <title>
-        Mathworks - Lobby
+        CollabMath - Lobby
     </title>
 
     <script>
@@ -25,8 +25,12 @@
         inviteBase.on('child_added', function (snapshot) {
             var invite = snapshot.val();
             pubVite=invite;
-            if (invite.name === "open" | invite.name === getCookie("userName")) {
-                document.getElementById("invites").innerHTML += "<p class='message'>" + invite.text + "<input type='button' value='join' onClick='storeJoinedRoom(pubVite.text)'></p></input><br>";
+            if (invite.name === "open" || invite.name + ", path=/" === getCookie("userName")) {
+                var str1 = "<p class='message'>";
+                var str2 = "<input type='button' value='join' onClick='storeJoinedRoom(\""
+                var str3 = "\")'></p></input><br>"
+                var str4 = invite.text;
+                document.getElementById("invites").innerHTML +=  str1.concat(str4,str2,str4,str3);
             }
         });
 
@@ -54,7 +58,6 @@
             });
 
             $("#createRoomButton").click(function () {
-                alert("hi");
                 storeCreatedRoom();
                 var name = "open";
                 if (document.getElementById('private').checked) {
@@ -81,6 +84,7 @@
         {
             setCookie("chatroomName", document.getElementById("roomName").value);
             console.log(document.cookie+"word");
+            window.open("ChatPage.html");       
             return true;
         }
         
@@ -88,12 +92,16 @@
         {
             setCookie("chatroomName",name);
             console.log(document.cookie+"word");
+            window.open("ChatPage.html");
             return true;  
         }
     </script>
 </head>
 
 <body>
+    <div id="joinRoomTitle">
+        <p>Join A Room:</p>
+    </div>
     <div id="invites">
     </div>
 

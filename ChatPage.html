@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
     <link href='http://fonts.googleapis.com/css?family=Roboto&subset=greek-ext,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="Chat%20UI.css">
+    <link rel="stylesheet" href="ChatUI.css">
 
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
@@ -19,16 +19,16 @@
     </title>
 
     <script>
-        var inviteBaseLobby = new Firebase('https://mathsages.firebaseio.com/');
+        var messageBase = new Firebase('https://mathsages.firebaseio.com/');
 
-        var text1 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text2 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text3 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text4 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text5 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text6 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text7 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
-        var text8 = "x = (-b +- sqrt(b^2-4ac))/(2a) .";
+        var text1 = "";
+        var text2 = "";
+        var text3 = "";
+        var text4 = "";
+        var text5 = "";
+        var text6 = "";
+        var text7 = "";
+        var text8 = "";
 
 
         function clearTextbox() {
@@ -36,7 +36,7 @@
             document.getElementById("inputBox").value = "";
         }
 
-        function send() {
+        function send(text) {
             "use strict";
             //document.getElementById("messages").innerHTML += "<br>" + document.getElementById("inputBox").value;
             var space1 = document.getElementById("1");
@@ -64,7 +64,7 @@
             text5 = text6;
             text6 = text7;
             text7 = text8;
-            text8 = document.getElementById("inputBox").value;
+            text8 = text;
             console.log(text8);
 
             MathJax.Hub.Queue(["Text", math1, text1]);
@@ -76,17 +76,22 @@
             MathJax.Hub.Queue(["Text", math7, text7]);
             MathJax.Hub.Queue(["Text", math8, text8]);
             //MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            fireBaseInt();
             clearTextbox();
         }
 
 
-
+        messageBase.on('child_added', function(snapshot) {
+                var message = snapshot.val();
+                if(message.name==getCookie("chatroomName"))
+                {
+                    send(message.text);
+                }
+        });
 
         function fireBaseInt() {
             var text = document.getElementById('inputBox').value;
-            var name = getCookie("chatroomName").value;
-            inviteBaseLobby.push({
+            var name = getCookie("chatroomName");
+            messageBase.push({
                 name: name,
                 text: text
             });
@@ -136,29 +141,31 @@
 
 
 
-
     <div id="title">
         <ul>
-            <li>Mathworks</li>
+            <li>CollabMath</li>
         </ul>
     </div>
+    <title>
+        CollabMath - Chat
+    </title>
 </head>
 
 <body>
     <div id="messages">
-        <p id="1">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="2">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="3">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="4">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="5">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="6">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="7">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
-        <p id="8">`x = (-b +- sqrt(b^2-4ac))/(2a)`</p>
+        <p id="1">``</p>
+        <p id="2">``</p>
+        <p id="3">``</p>
+        <p id="4">``</p>
+        <p id="5">``</p>
+        <p id="6">``</p>
+        <p id="7">``</p>
+        <p id="8">``</p>
     </div>
     <div id="textbox">
         <div id="inputArea">
-            <input type="text" id="inputBox" value="Enter Message Here" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
-            <input type="button" id="inputButton" value="Send" onclick="send()" />
+            <input type="text" id="inputBox" value="Enter Message Here" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)fireBaseInt()" />
+            <input type="button" id="inputButton" value="Send" onclick="fireBaseInt()" />
         </div>
     </div>
 </body>

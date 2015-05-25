@@ -25,6 +25,11 @@ body {
   color: #333333;
   /*position: right;*/
 }
+
+html{
+    overflow-y: scroll;
+}
+
 #title {
   text-align:center;
   color: #FFFFFF;
@@ -54,7 +59,7 @@ body {
   margin: 0px;
 }
 
-#inputButton {
+#sumit {
     width: auto;
     font-size: 4.5em;
     font-family:'Ubuntu';

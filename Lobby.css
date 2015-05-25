@@ -1,0 +1,276 @@
+.open {
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    -o-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #454545;
+    color: #333333;
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    /*position: right;*/
+}
+
+#title {
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:            #FFFFFF;
+    background-color: #000000;
+    text-align:       center;
+    font-size:        120px;    
+    font-family:      'Raleway';
+    font-weight:      100;
+    padding:          25px
+}
+
+html{
+    overflow-y: scroll;
+}
+
+#title ul {
+    list-style-type: none;
+    margin:          0;
+    padding:         0;
+}
+
+#createRoomTitle {
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:         #18b5bc;
+    text-align:    center;
+    font-size:     2em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#joinRoomTitle {
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:         #18b5bc;
+    text-align:    center;
+    font-size:     2em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#makeRoom {
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:         #FFFFFF;
+    text-align:    center;
+    font-size:     2em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#private{ 
+    width: 2em;
+    height: 2em;
+}
+
+#roomName{
+    color:         #000000;
+    text-align:    center;
+    font-size:     0.75em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#tutorName{
+    color:         #000000;
+    text-align:    center;
+    font-size:     0.75em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#createRoomButton{    
+    background-color: #777777;
+    border:           0.05em solid #777777 ;
+    border-radius:    0.35em;
+    padding:          0.0em 0.15em 0.0em 0.15em;
+    
+    color:         #000000;
+    text-align:    center;
+    font-size:     1.25em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+.message{
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:         #FFFFFF;
+    text-align:    center;
+    font-size:     1.5em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#invites > p:nth-child(1) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(2) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(3) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(4) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(5) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(6) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(7) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(8) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(9) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}
+
+#invites > p:nth-child(10) > input[type="button"]{
+    width: auto;
+    font-size: 1em;
+    font-family:'Ubuntu';
+    text-align: center;
+    font-weight: 300;
+    background-color: #777777;
+    border: 0.02em solid #777777 ;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    color: #000000;
+    margin-left: 10px;
+}

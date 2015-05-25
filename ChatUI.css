@@ -11,6 +11,10 @@
     user-select: none;
 }
 
+html{
+    overflow-y: scroll;
+}
+
 body {
     left: 0;
     margin: 0;
