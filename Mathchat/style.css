@@ -1,0 +1,91 @@
+* {
+  /*border: 1px dashed #0000FF;*/
+}
+.menu {
+  left: -200px;
+  height: 100%;
+  position: fixed;
+  width: 200px;
+  background: #696969;
+  color: #FFFFFF;
+  font-family:'Quicksand', Serif;
+  font-size: 24px;
+  /*border: 1px solid #0000FF;
+  border-radius: 10px;*/
+}
+.menu ul {
+  list-style: none;
+}
+.menu li a {
+  color: #EEEEEE;
+}
+.menu li a:hover {
+  color: #0000FF;
+}
+.menu li #active a {
+  color: #000000;
+}
+.open {
+  font-size:35px;
+  cursor:pointer;
+  float: left;
+  -o-user-select:none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+.open:hover {
+  color:#555555;
+}
+body {
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  background-image: url("file:///C:/Users/Me/Downloads/swirl_pattern/swirl_pattern.png");
+  background-color:#EEEEEE;
+  color: #333333;
+  /*position: relative;*/
+}
+#title {
+  text-align:center;
+  color: #FFFFFF;
+  background-color:#2E2E2E;
+  font-family:'Quicksand', Serif;
+  font-size: 30px;
+  margin: 0px;
+  /*border: 1px solid #0000FF;
+  border-radius: 10px;*/
+  padding: 10px
+}
+#title ul {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+#title li {
+  display: inline;
+}
+#messages {
+  text-align:center;
+  font-family:'Roboto', Sans Serif;
+}
+#textbox {
+  text-align: center;
+  font-family:'Roboto', Sans Serif;
+}
+#inputButton {
+  background-color: #0066FF;
+  color: #FFFFFF;
+  border: 2px solid #0066FF;
+  border-radius: 3px;
+  padding: 5px 10px 5px 10px;
+}
+#inputBox {
+  color: #696969;
+  border-radius: 3px;
+  padding: 5px 10px 5px 2px;
+}

@@ -1,0 +1,77 @@
+.open {
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    -o-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+html{
+    overflow-y: scroll;
+}
+
+body {
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: #454545;
+    color: #ffffff;
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    /*position: right;*/
+}
+
+#title {
+    margin-top:    0;
+    margin-bottom: 0;
+    margin-left:   0;
+    margin-right:  0;
+    
+    color:            #FFFFFF;
+    background-color: #000000;
+    text-align:       center;
+    font-size:        120px;    
+    font-family:      'Raleway';
+    font-weight:      100;
+    padding:          25px
+}
+
+#title ul {
+    list-style-type: none;
+    margin:          0;
+    padding:         0;
+}
+
+#messages{
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+#inputArea{
+    width:      auto;
+    height:     auto;
+    text-align: center;
+}
+
+#inputBox{
+    color:         #000000;
+    text-align:    center;
+    font-size:     1.2em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
+
+#inputButton{
+    text-align:    center;
+    font-size:     1.2em;
+    font-family:   'Ubuntu';
+    font-weight:   100;
+}
