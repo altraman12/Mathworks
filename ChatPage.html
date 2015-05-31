@@ -27,10 +27,13 @@
             "use strict";
             document.getElementById("inputBox").value = "";
         }
-
+        
+        var messageCount=0;
+        
         function send(text) {
             "use strict";
-            document.getElementById("messages").innerHTML += "<br><p class='message'>`" + text + "`</p>"
+            document.getElementById("messages").innerHTML += "<br><p id='" +messageCount+ "'>`" + text + "`</p>"
+            console.log(messageCount.toString())
             
             textArr.push(text);
             console.log(textArr);
@@ -40,9 +43,10 @@
             for (i = 0; i < x.length; i++) {
                 var math = MathJax.Hub.getAllJax("messages")[i];
                 var mess = textArr[i].value; 
-                MathJax.Hub.Queue(["Text", math, mess]);
+                //MathJax.Hub.Queue(["Text", math, mess]);
             }
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"MathDiv"]);
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,messageCount.toString()]);
+            messageCount++;
         }
 
 
