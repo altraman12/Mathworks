@@ -4,6 +4,7 @@
 <head>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,900,200,300,500,600,700,800' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.5/jquery.min.js"></script
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
@@ -13,28 +14,39 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!--This used to be https-->
-
-
-
     <script>
-        var today = new Date();
-        var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
-        function setCookie(name, value) {
-                document.cookie = name + "=" + escape(value) + ", path=/; expires=" + expiry.toGMTString();
-            }
-            //this should set the UserName cookie to the proper value;
+        function updatePrev() {
+            document.body.getElementsByClassName('problemPreview')[0].innerHTML = "`" + document.getElementById('inputBox').value + "`";
+            console.log(document.body.getElementsByClassName('problemPreview')[0].innerHTML);
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+
         function storeValues(form) {
-            setCookie("userName", document.getElementById("inputBox").value);
+            var problemBase = new Firebase('https://mathprobs.firebaseio.com/');
+            var name = getCookie("chatroomName");
+            var text = document.getElementById('inputBox').value;
+            problemBase.push({
+                name: name,
+                text: text
+            });
             var url = "file:///C:/Users/Admin/Documents/Mathworks/Lobby.html";
-            document.location.replace("file:///C:/Users/Admin/Documents/Mathworks/Lobby.html");
-            window.open("Lobby.html");
+            document.location.replace("file:///C:/Users/Admin/Documents/Mathworks/ChatPage.html");
+            window.open("ChatPage.html");
             self.close();
             return true;
         }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
     </script>
-
-
-
 
     <div id="title">
         <ul>
@@ -54,15 +66,15 @@
     <br>
     <br>
     <br>
+    <div class="problemPreview">
+
+    </div>
     <div id="textbox">
         <div id="inputArea">
 
             <form onsubmit="storeValues(this)">
-                <!--<input type="text" value="" id="nameBox">-->
-                <!--<input type="submit" value="Go!" id="submit">-->
 
-
-                <input type="text" id="inputBox" value="Enter Username" onclick="clearTextbox()" onkeydown="if (event.keyCode == 13)send()" />
+                <input type="text" id="inputBox" value="Enter Problem" onkeyup="updatePrev()" />
                 <br>
                 <br>
                 <br>
